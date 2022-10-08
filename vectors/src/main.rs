@@ -41,7 +41,8 @@ fn main() {
         for el in l {
             sum += el;
         }
-        let length = (l.len()) as i32;
-        (sum / length) as f64
+        let length = (l.len()) as f64;
+        let sum: f64 = sum as f64;
+        sum / length
     }
 }
