@@ -20,11 +20,28 @@ fn main() {
     println!("{}", n2);
     println!("{}", n3);
 
-    //Доступ до значень через ключ
+    //Доступ до значень через лінку на ключ
     println!("{}", map[&n2]);
 
-    match  {
-         => 
-        _ => 
+    //Перевірка чи існує запис через лінку на ключ
+    match map.get(&n1) {
+        Some(mark) => {
+            println!("Mark is => {}", mark)
+        }
+        None => {
+            println!("Element doesent exist!")
+        }
     }
+
+    //Перебір колекції циклом
+
+    for (name, mark) in &map {
+        println!("The student {} has mark - {}", name, mark);
+    }
+
+    // Зміна HashMap.
+    //ПЕревіряємо чи є запис "Влад", якщо є - нам поверне цей запис, якщо немає - ми створимо запис по ключу "Влад" із значенням 9
+    let n4 = "Vlad".to_string();
+    map.entry(&n4).or_insert(9);
+    println!("{:?}", map);
 }
